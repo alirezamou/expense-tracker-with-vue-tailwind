@@ -1,1 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+#app {
+  @apply my-[30px] mx-auto w-[350px] flex flex-col gap-2;
+}
