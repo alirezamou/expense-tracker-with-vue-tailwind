@@ -10,4 +10,11 @@ export const useTransactionStore = defineStore("transactions", {
       { id: 4, text: "Camera", amount: 150 },
     ],
   }),
+  actions: {
+    deleteTransaction(transaction) {
+      this.transactions = this.transactions.filter(
+        (trx) => trx.id !== transaction.id
+      );
+    },
+  },
 });

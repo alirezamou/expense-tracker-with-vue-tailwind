@@ -1,12 +1,17 @@
 <script>
+import { storeToRefs } from 'pinia';
 import { useTransactionStore } from '../stores/transaction';
 export default {
     setup() {
         const transactionStore = useTransactionStore();
-        return { transactionStore };
+        const { transactions } = storeToRefs(transactionStore);
+        const { deleteTransaction } = transactionStore;
+        return { transactions, deleteTransaction }
     },
-    computed: {
-        transactions() { return this.transactionStore.transactions; }
+    methods: {
+        onDelete(trx) {
+            this.deleteTransaction(trx);
+        }
     }
 }
 </script>
@@ -23,6 +28,7 @@ export default {
                 <span>{{ trx.text }}</span>
                 <span>{{ trx.amount > 0 ? `+${trx.amount}` : trx.amount }}$</span>
                 <button
+                @click="onDelete(trx)"
                 class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-full px-2 py-0.5 bg-[#e74c3c] text-white rounded-sm opacity-0 group-hover:opacity-100 transition-opacity ease duration-300"
                 >x</button>
             </li>
