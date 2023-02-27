@@ -16,5 +16,8 @@ export const useTransactionStore = defineStore("transactions", {
         (trx) => trx.id !== transaction.id
       );
     },
+    addTransaction(transaction) {
+      this.transactions.push(transaction);
+    },
   },
 });
