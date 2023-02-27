@@ -1,9 +1,25 @@
-<script setup>
+<script>
+import Header from "./components/Header.vue";
+import Balance from "./components/Balance.vue";
+import IncomeExpense from "./components/IncomeExpense.vue";
+import TransactionList from "./components/TransactionList.vue";
+import AddTransaction from "./components/AddTransaction.vue";
+
+export default {
+    components: {
+        Header,
+        Balance,
+        IncomeExpense,
+        TransactionList,
+        AddTransaction
+    }
+}
 </script>
 
 <template>
-    <h1 class="bg-blue-700">Hello world styled with tailwindcss</h1>
+    <Header title="Expense Tracker" />
+    <Balance />
+    <IncomeExpense />
+    <TransactionList />
+    <AddTransaction />
 </template>
-
-<style scoped>
-</style>
